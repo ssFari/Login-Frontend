@@ -1,0 +1,186 @@
+
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --header-height: 3rem;
+
+    /*========== Colors ==========*/
+    /* Change favorite color */
+    --hue-color: 121; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+
+    /* HSL color mode */
+    --first-color: hsl(var(--hue-color), 31%, 44%);
+    --first-color-second: hsl(var(--hue-color), 35%, 60%);
+    --first-color-lighter: hsl(var(--hue-color), 55%, 74%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(0, 0%, 20%);
+    --text-color-light: hsl(0, 0%, 35%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --container-color: #fff;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+.h-100vh{
+  height: 100vh;
+  overflow: hidden;
+}
+
+body{
+  background-color: var(--body-color);
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+}
+.bg1-color{
+  background-color: var(--first-color-lighter);
+}
+
+
+.sec-login-right{
+  width: 55vw;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  border-radius: 2rem 0 0 2rem;
+  overflow: hidden;
+}
+
+.component-bg{
+  z-index: -2;
+}
+
+.sec-login-right .img-main,
+.sec-login-right .img-sub{
+  position: absolute;
+}
+
+.sec-login-right .img-sub img{
+  width: 100%;
+  height:100%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* .sec-login-right .img-main img{
+  width: 600px;
+  height: 600px;
+} */
+
+.sec-login-right .img-sub:nth-child(1){
+  left: -150px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sec-login-right .img-sub:nth-child(2) img{
+  width: 100%;
+  height:100%;
+  max-width: 350px;
+  max-height: 350px;
+}
+
+.sec-login-right .img-sub:nth-child(2){
+  right: -175px;
+  top: -50px;
+}
+
+.sec-login-right .img-main img{
+  max-width: 1200px;
+  max-height: 1200px;
+
+}
+
+.sec-login-right .img-main{
+  top: 239px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media only screen and (max-height: 800px){
+  .sec-login-right .img-main img{
+    max-width: 500px;
+    max-height: 500px;
+  
+  }
+  .sec-login-right .img-main{
+    top: unset;
+    bottom: -20px;
+
+  }
+}
+
+/* title */
+
+.main-title{
+  font-size: var(--h1-font-size);
+  font-weight:lighter;
+  color: var(--title-color);
+}
+
+.sub-title{
+  font-size: var(--h3-font-size);
+  font-weight: lighter;
+  color: var(--text-color-light);
+}
+
+.component-title{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);  
+  z-index: 1;
+}
