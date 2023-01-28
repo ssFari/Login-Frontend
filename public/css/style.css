@@ -335,7 +335,7 @@ body{
   content: "";
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("/asset/png/google-icon.png");
+  background-image: url("../asset/png/google-icon.png");
   position: absolute;
   display: block;
   width: 25px;
