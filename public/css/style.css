@@ -235,7 +235,7 @@ body{
   color: var(--text-color);
   margin-bottom: var(--mb-1);
   display: inline;
-  transition: border 150ms cubic-bezier(0.4,0,0.2,1);;
+  transition: border 300 cubic-bezier(0.4,0,0.2,1);
 }
 
 .form-input:focus,.form-input:valid{
@@ -335,7 +335,7 @@ body{
   content: "";
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("../asset/png/google-icon.png");
+  background-image: url("../../asset/png/google-icon.png");
   position: absolute;
   display: block;
   width: 25px;
@@ -359,3 +359,74 @@ body{
   overflow: hidden;
 }
 
+.swipe-up,.swipe-down{
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  .sec-login-left{
+    width: 100vw;
+    z-index: 0;
+  }
+  .sec-login-right{
+    width: 100vw;
+    border-radius: 0;
+    z-index: 1;
+    transition: 300ms cubic-bezier(0.4,0,0.2,1);
+
+  }
+
+  .swipe-up,.swipe-down{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 40px;
+    top: calc(100% - 200px);
+    align-items: center;
+    color: var(--text-color);
+    transform: rotate(-90deg);
+    cursor: pointer;
+    transform-origin: right;
+    z-index: 2;
+  }
+
+  .swipe-down::before,
+  .swipe-up::before{
+    content: "";
+    width: 100px;
+    height: 3px;
+    display: block;
+    background-color: var(--first-color);
+    margin-right: 20px;
+  }
+  .swipe-down .gg-arrow-down,
+  .swipe-up .gg-arrow-up{
+    rotate: 90deg;
+    left:5px;
+    animation: swiper 1s ease-in-out infinite;
+  }
+
+  .swipe-down .gg-arrow-down{
+    left: unset;
+    right: 10px;
+  }
+
+  .swipe-active {
+    transform: translateY(-100%);
+    
+  }
+
+  @keyframes swiper {
+    0%{
+      transform: translateY(-10px);
+    }
+    50%{
+      transform: translateY(0px);
+    }
+    100%{
+      transform: translateY(-10px);
+    }
+
+  }
+
+}
