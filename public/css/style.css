@@ -412,8 +412,8 @@ body{
   }
 
   .swipe-active {
-    transform: translateY(-100%);
-    
+    transform: translateY(-97%);
+    border-radius: 0 0 10% 10%;
   }
 
   @keyframes swiper {
