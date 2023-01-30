@@ -321,8 +321,11 @@ body{
   border: 1px solid var(--text-color-light);
   border-radius: var(--mb-1);
   background-color: var(--container-color);
-  font-weight: 500;
+  font-weight: 900;
   font-size: var(--normal-font-size);
+  text-decoration: none;
+  color: var(--text-color);
+
   cursor: pointer;
 }
 

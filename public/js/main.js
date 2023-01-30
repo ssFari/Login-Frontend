@@ -16,10 +16,6 @@ if (screenWidth <= 768) {
   // Menambahkan event listener untuk detect swipe pada mouse
   document.addEventListener('mousedown', startSwipe);
   document.addEventListener('mouseup', endSwipe);
-
-  // menambahakan event listener untuk detect swipe pada sen
-  document.addEventListener('touchstart', startSwipe);
-  document.addEventListener('touchend', endSwipe);
 }
 
 // Fungsi untuk mendeteksi awal dari swipe
@@ -62,7 +58,7 @@ element1.addEventListener("touchstart", function(event) {
     var endY = event.changedTouches[0].clientY;
     var swipeUp = startY - endY;
     console.log(swipeUp);
-    if (swipeUp > 150) {
+    if (swipeUp > 300) {
       // Logika untuk swipe up pada elemen 1
       element1.classList.add("swipe-active");
     }
@@ -77,10 +73,18 @@ element2.addEventListener("touchstart", function(event) {
     var endY = event.changedTouches[0].clientY;
     var swipeDown = endY - startY;
     console.log(swipeDown);
-    if (swipeDown > 150) {
+    if (swipeDown > 300) {
       // Logika untuk swipe down pada elemen 2
       element1.classList.remove("swipe-active")
     }
   });
 });
 
+
+//Mendapatkan elemen form
+var form = document.getElementsByClassName("main-form");
+
+// Menambahkan event listener untuk mencegah penghapusan elemen 1 saat menyentuh form
+form.addEventListener("touchstart", function(event) {
+  event.preventDefault();
+});
