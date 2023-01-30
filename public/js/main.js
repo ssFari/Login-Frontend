@@ -8,16 +8,18 @@ if (screenWidth <= 768) {
   // Menambahkan event listener untuk tombol swipe up dan swipe down
   document.querySelector('.swipe-up').addEventListener('click', function(){
     element1.classList.add("swipe-active");
-    element2.classList.remove("swipe-active");
   });
   document.querySelector('.swipe-down').addEventListener('click', function(){
     element1.classList.remove("swipe-active");
-    element2.classList.add("swipe-active");
   });
 
   // Menambahkan event listener untuk detect swipe pada mouse
   document.addEventListener('mousedown', startSwipe);
   document.addEventListener('mouseup', endSwipe);
+
+  // menambahakan event listener untuk detect swipe pada sen
+  document.addEventListener('touchstart', startSwipe);
+  document.addEventListener('touchend', endSwipe);
 }
 
 // Fungsi untuk mendeteksi awal dari swipe
@@ -34,6 +36,7 @@ function endSwipe(event) {
   var xDiff = xDown - xUp;
   var yDiff = yDown - yUp;
 
+
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
     if (xDiff > 0) {
       // Swipe left
@@ -41,14 +44,43 @@ function endSwipe(event) {
       // Swipe right
     }
   } else {
-    if (yDiff > -100) {
+    if (yDiff > 100) {
       // Swipe up
       element1.classList.add("swipe-active");
-      element2.classList.remove("swipe-active");
-    } else {
-      // Swipe down
-      element1.classList.remove("swipe-active");
-      element2.classList.add("swipe-active");
+    } else if(yDiff < -100){
+      element1.classList.remove("swipe-active")
     }
   }
 }
+
+
+// Menambahkan event listener untuk swipe up pada elemen 1
+element1.addEventListener("touchstart", function(event) {
+  var startY = event.touches[0].clientY;
+
+  element1.addEventListener("touchend", function(event) {
+    var endY = event.changedTouches[0].clientY;
+    var swipeUp = startY - endY;
+    console.log(swipeUp);
+    if (swipeUp > 150) {
+      // Logika untuk swipe up pada elemen 1
+      element1.classList.add("swipe-active");
+    }
+  });
+});
+
+// Menambahkan event listener untuk swipe down pada elemen 2
+element2.addEventListener("touchstart", function(event) {
+  var startY = event.touches[0].clientY;
+
+  element2.addEventListener("touchend", function(event) {
+    var endY = event.changedTouches[0].clientY;
+    var swipeDown = endY - startY;
+    console.log(swipeDown);
+    if (swipeDown > 150) {
+      // Logika untuk swipe down pada elemen 2
+      element1.classList.remove("swipe-active")
+    }
+  });
+});
+
