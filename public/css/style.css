@@ -314,6 +314,7 @@ body{
 .google-button{
   width: 100%;
   height: 50px;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -325,7 +326,6 @@ body{
   font-size: var(--normal-font-size);
   text-decoration: none;
   color: var(--text-color);
-
   cursor: pointer;
 }
 
@@ -432,4 +432,18 @@ body{
 
   }
 
+}
+
+
+/* form sig-up */
+
+.sec-sig-up {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sec-sig-up .middle{
+  max-width: 400px;
+  position: absolute;
 }

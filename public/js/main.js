@@ -48,3 +48,91 @@ function endSwipe(event) {
     }
   }
 }
+
+
+
+/** 
+ * Create Account
+ */
+// Load file JSON
+
+document.addEventListener("DOMContentLoaded",function(){
+  const oForm = document.querySelector(".main-form");
+  const emailInput = document.querySelector("#email");
+  const passwordInput = document.querySelector("#password");
+  const checkPasswordInput = document.querySelector("#checkPassword");
+  const submitButton = document.querySelector("#submitSigup");
+
+  let accounts = [];
+
+  function loadAccountsFromLocalStorage() {
+    const data = localStorage.getItem("accounts");
+    if (data) {
+      accounts = JSON.parse(data);
+    }
+  }
+
+  function saveAccountsToLocalStorage() {
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+  }
+
+  oForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    loadAccountsFromLocalStorage();
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    const checkPassword = checkPasswordInput.value;
+
+    // Cek apakah password dan checkPassword cocok
+    if (password !== checkPassword) {
+      alert("Password dan konfirmasi password tidak cocok");
+      return;
+    }
+
+    // Cek apakah email sudah terdaftar
+    const existingAccount = accounts.find((account) => account.email === email);
+    if (existingAccount) {
+      alert("Email sudah terdaftar");
+      return;
+    }
+
+    // Tambah account baru ke daftar accounts
+    accounts.push({ email, password });
+    saveAccountsToLocalStorage();
+
+    alert("Berhasil membuat account");
+    window.location.href = "login.html";
+
+  });
+})
+
+
+
+
+  // login
+
+  const gform = document.querySelector(".main-form");
+  gform.addEventListener("submit", e => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // retrieve the data from local storage
+    const accounts = JSON.parse(localStorage.getItem("accounts"));
+
+    // check if the email and password match any account in local storage
+    const account = accounts.find(
+      account => account.email === email && account.password === password
+    );
+
+    if (account) {
+      // if match, set the session and redirect to index page
+      sessionStorage.setItem("user", JSON.stringify(account));
+      window.location.href = "index.html";
+    } else {
+      // if not match, show an error message
+      alert("Email or password is incorrect.");
+    }
+  });
