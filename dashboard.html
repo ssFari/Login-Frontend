@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =====================ICON========================= -->
+    <link href="node_modules/material-icons/css/material-icons.css" rel="stylesheet">
+    <link href="node_modules/css.gg/icons/all.css" rel="stylesheet">
+    <!-- =====================Main Style========================= -->
+    <link href="public/css/style.css" rel="stylesheet">
+    <title>Dashboard</title>
+  </head>
+  <body class="h-100vh">
+    <button class="logout-button">Log Out</button>
+
+
+    <!-- <script src="public/js/main.js"></script> -->
+    <script>
+      const loggedInUser = sessionStorage.getItem("user");
+    
+      if (!loggedInUser) {
+        window.location.href = "index.html";
+      }
+
+      const btnOut = document.querySelector(".logout-button")
+
+      btnOut.addEventListener("click",function(){
+        sessionStorage.removeItem('user');
+        window.location.href = "index.html";
+      })
+    </script>
+  </body>
+</html>

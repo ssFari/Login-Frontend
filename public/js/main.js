@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded",function(){
     saveAccountsToLocalStorage();
 
     alert("Berhasil membuat account");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 
   });
 })
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded",function(){
     if (account) {
       // if match, set the session and redirect to index page
       sessionStorage.setItem("user", JSON.stringify(account));
-      window.location.href = "index.html";
+      window.location.href = "dashboard.html";
     } else {
       // if not match, show an error message
       alert("Email or password is incorrect.");
